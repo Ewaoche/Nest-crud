@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { User } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class UsersService {
@@ -32,7 +32,7 @@ export class UsersService {
       }
       
 
-    async create(data:User){
+    async create(data:Prisma.UserCreateInput){
         console.log(data)
         return this.prisma.prismaClient.user.create({data})
     }
